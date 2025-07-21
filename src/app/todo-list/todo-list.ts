@@ -3,21 +3,24 @@ import { Todo } from '../models/Todo';
 import { NgClass } from '@angular/common';
 
 @Component({
-    selector: 'app-todo-list',
-    imports: [NgClass],
-    templateUrl: './todo-list.html',
-    styleUrl: './todo-list.css'
+  selector: 'app-todo-list',
+  imports: [NgClass],
+  templateUrl: './todo-list.html',
+  styleUrl: './todo-list.css'
 })
 export class TodoList {
-    @Input() todoListInput!: Todo[]
+  @Input() todoListInput!: Todo[]
 
-    handleCheck(id: number) {
-        let idx = this.todoListInput.findIndex((todo => todo.id == id));
-        this.todoListInput[idx].isCompleted = !this.todoListInput[idx].isCompleted;
-    }
+  handleCheck(id: number) {
+    let idx = this.todoListInput.findIndex((todo => todo.id == id));
+    this.todoListInput[idx].isCompleted = !this.todoListInput[idx].isCompleted;
+  }
 
-    handleDelete(id: number) {
-        let idx = this.todoListInput.findIndex((todo => todo.id == id));
-        this.todoListInput.splice(idx, 1);
+  handleDelete(id: number) {
+    let isSure = confirm("Are you Sure To Delete This Task ?");
+    if (isSure) {
+      let idx = this.todoListInput.findIndex((todo => todo.id == id));
+      this.todoListInput.splice(idx, 1);
     }
+  }
 }
