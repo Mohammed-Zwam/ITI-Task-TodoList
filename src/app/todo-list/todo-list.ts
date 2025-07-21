@@ -11,12 +11,12 @@ import { NgClass } from '@angular/common';
 export class TodoList {
   @Input() todoListInput!: Todo[]
 
-  handleCheck(id: number) {
+  handleCheck(id: string) {
     let idx = this.todoListInput.findIndex((todo => todo.id == id));
     this.todoListInput[idx].isCompleted = !this.todoListInput[idx].isCompleted;
   }
 
-  handleDelete(id: number) {
+  handleDelete(id: string) {
     let isSure = confirm("Are you Sure To Delete This Task ?");
     if (isSure) {
       let idx = this.todoListInput.findIndex((todo => todo.id == id));
