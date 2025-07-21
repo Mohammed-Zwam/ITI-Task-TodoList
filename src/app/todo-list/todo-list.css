@@ -1,0 +1,56 @@
+.todo-list-container {
+  background-color: #ddd;
+}
+
+.task {
+  transition: .3s;
+}
+
+.task h2 {
+  word-wrap: break-word;
+  max-width: 70%;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.task:hover {
+  transform: translateY(-3px);
+  box-shadow: 1px 3px 8px 1px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  font-family: sans-serif;
+}
+
+h2 {
+  font-family: monospace;
+}
+
+i {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+i:hover {
+  background-color: #ccc;
+
+}
+
+.bi-trash {
+  color: darkred;
+}
+
+.bi-check2-circle {
+  color: darkgreen;
+}

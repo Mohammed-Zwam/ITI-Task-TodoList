@@ -1,0 +1,27 @@
+<div class="todo-list-container p-4">
+  <h1 class="ms-4 fs-2 ">Todo List</h1>
+  <p class="text-center fs-4 text-secondary">Let's get some work done !</p>
+  <div class="tasks-container mt-4">
+
+    @for(todo of todoListInput; track todo.id) {
+    <div
+      class="task mb-3 p-2 pe-3 ps-3 rounded ps-4 bg-primary d-flex align-items-center justify-content-between m-auto gap-2">
+      <h2 class=" text-light fs-4 m-0" [ngClass]=" todo.isCompleted? 'completed' : '' ">
+        {{todo.taskTitle}}</h2>
+      <div class="controls d-flex align-items-center justify-content-center gap-2">
+        <i class="bi bi-trash" (click)="handleDelete(todo.id)"></i>
+        @if(todo.isCompleted) {
+        <i class="bi bi-check2-circle" (click)="handleCheck(todo.id)"></i>
+        } @else{
+        <i class="bi bi-circle" (click)="handleCheck(todo.id)"></i>
+        }
+      </div>
+    </div>
+    } @empty {
+    <div class="alert alert-primary fs-5 fw-medium" role="alert">
+      No Tasks To Show !
+    </div>
+    }
+
+  </div>
+</div>

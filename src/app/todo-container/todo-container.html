@@ -1,0 +1,4 @@
+<div class="todo-container mt-5 mb-5 m-auto">
+  <app-todo-form (sendTaskEvent)="setNewTask($event)"></app-todo-form>
+  <app-todo-list [todoListInput]="todoList"></app-todo-list>
+</div>
